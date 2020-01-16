@@ -26,8 +26,6 @@ warnings.warn('Warnings Simulation')
 
 
 urls=['https://shop.tcgplayer.com/yugioh/product/show?advancedSearch=true&Price_Condition=Less+Than&Type=Cards&Card+Type=Main+Deck+Monster&Rarity=Common+%2f+Short+Print&newSearch=false&orientation=list',
-'https://shop.tcgplayer.com/yugioh/product/show?advancedSearch=true&Price_Condition=Less+Than&Type=Cards&Card+Type=Main+Deck+Monster&newSearch=false&Rarity=Super+Rare&orientation=list',
-'https://shop.tcgplayer.com/yugioh/product/show?advancedSearch=true&Price_Condition=Less+Than&Type=Cards&Card+Type=Main+Deck+Monster%20&newSearch=false&Rarity=Rare&orientation=list',
 'https://shop.tcgplayer.com/yugioh/product/show?advancedSearch=true&Price_Condition=Less+Than&Type=Cards&Card+Type=Main+Deck+Monster&newSearch=false&Rarity=Ultra+Rare&orientation=list',
 'https://shop.tcgplayer.com/yugioh/product/show?advancedSearch=true&Price_Condition=Less+Than&Type=Cards&Card+Type=Main+Deck+Monster&newSearch=false&Rarity=Secret+Rare&orientation=list',
 'https://shop.tcgplayer.com/yugioh/product/show?advancedSearch=true&Price_Condition=Less+Than&Type=Cards&Card+Type=Main+Deck+Monster&Rarity=Ultimate+Rare&newSearch=false&orientation=list',
