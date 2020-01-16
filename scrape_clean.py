@@ -92,9 +92,7 @@ urls=['https://shop.tcgplayer.com/yugioh/product/show?advancedSearch=true&Price_
 'https://shop.tcgplayer.com/yugioh/product/show?advancedSearch=true&Price_Condition=Less+Than&Type=Cards&Card+Type=Extra+Deck+Monster&newSearch=false&Rarity=Prismatic+Secret+Rare&orientation=list',
 'https://shop.tcgplayer.com/yugioh/product/show?advancedSearch=true&Price_Condition=Less+Than&Type=Cards&Card+Type=Extra+Deck+Monster&newSearch=false&Rarity=Ghost+Rare&orientation=list',
 'https://shop.tcgplayer.com/yugioh/product/show?advancedSearch=true&Price_Condition=Less+Than&Type=Cards&Card+Type=Extra+Deck+Monster&newSearch=false&Rarity=Parallel+Rare&orientation=list',
-'https://shop.tcgplayer.com/yugioh/product/show?advancedSearch=true&Price_Condition=Less+Than&Type=Cards&Card+Type=Extra+Deck+Monster&newSearch=false&Rarity=Platinum+Rare&orientation=list',
-'https://shop.tcgplayer.com/yugioh/product/show?advancedSearch=true&Price_Condition=Less+Than&Type=Cards&Card+Type=Extra+Deck+Monster&newSearch=false&Rarity=Short+Print&orientation=list',
-'https://shop.tcgplayer.com/yugioh/product/show?advancedSearch=true&Price_Condition=Less+Than&Type=Cards&Card+Type=Extra+Deck+Monster&newSearch=false&Rarity=Ghost%2fGold+Rare&orientation=list']
+'https://shop.tcgplayer.com/yugioh/product/show?advancedSearch=true&Price_Condition=Less+Than&Type=Cards&Card+Type=Extra+Deck+Monster&newSearch=false&Rarity=Platinum+Rare&orientation=list',]
 
 
 # In[4]:
