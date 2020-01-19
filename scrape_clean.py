@@ -178,3 +178,22 @@ df= pd.DataFrame ({
 
 df.to_csv('file1.csv')
 
+import MySQLdb
+import csv
+
+db = MySQLdb.connect(user = 'tier1marketspace',
+                    password = 'poopypants',
+                    host = 'tier1marketspace.mysql.pythonanywhere-services.com',
+                    database = 'tier1marketspace$Tier1',
+                    autocommit = True,
+                    local_infile = 1)
+print("Connection to DB Established")
+
+cursor = db.cursor() 
+Query = "LOAD DATA LOCAL INFILE 'file1.csv' INTO TABLE Prices FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n' IGNORE 1 LINES (@dummy, CardName, CardID, Price, PriceDate);"
+
+cursor.execute(Query)
+cursor.close()
+db.close()
+print("Connection to DB Closed")
+
