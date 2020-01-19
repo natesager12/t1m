@@ -175,7 +175,7 @@ df= pd.DataFrame ({
     'setNumber': setNumbers,
     'price': prices,
 })
-
+df.price = [x.strip('$') for x in df.price]
 df.to_csv('file1.csv')
 
 import MySQLdb
