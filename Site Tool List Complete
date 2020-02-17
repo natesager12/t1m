@@ -1,0 +1,71 @@
+# Site Tool List 
+
+ All
+
+1. Historical price tools
+2. $-buyout alerts 
+3. -historical graphs
+    1. -including indices
+        1. -index of last 3 sets (maybe more maybe less) have to research relevancy of sets over time and how much they last
+        2. -index of last set
+        3. -index of secret rare chase cards
+        4. -index of meta decks core cards
+        5. -index of structure deck resale value
+        6. -historical graphs for individual cards
+4. Print off proxies
+5. Statistical deck analysis
+6. tool that can find cards with combo interactions
+7. $-Deck pitchdecks
+	--Would do this for tier 1/1.5/2 decks
+	-Update as sets are released/banlists are released
+	-complete transparency for the meta. Allow people to be on an even playing field even
+	if they do not have time to invest in learning combos for themselves
+	-lower barrier to entry to play meta decks
+	-do not need to have top tier players in your friend circle to really understand the format and how to play in it
+8. $ Access to .csv file with historical data behind pay wall
+	-“If you could make a website that's literally just a website where you can enter parameters like start date, end date, set, etc. and just download a huge CSV file with historical price data, you would be doing the world an incredible favor. Right now there isn't a single good place where a financer can get raw data. It's all spark charts and the like.”
+	-https://i.reddit.com/r/mtgfinance/comments/aad50g/experience_with_tcgplayers_api/
+card screener/database. So you can search for cards with x and y characteristic to help with investment or looking for spicy techs
+analytics on pull rates and expected value of cases/boxes/sets. Investigate what johnathan moore talked aboutda
+9. Card Conditional Query Alerts
+    1. Card that is selling for a price far below its historical avg, a good time to buy?
+    2. Card that has gone through a natural buyout and is trading up. Like a $2 card becomes an $11 card over the course of two weeks
+    3. Card that has very few copies available. natural buyout. Maybe the price hasn’t even gone up that much
+    4. Cards that are selling high above historical avg, time to sell
+
+
+For Launch
+
+1. Individual historical graphs
+2. $-buyout alerts
+3. Index
+	-index of last 3 sets (maybe more maybe less) have to research relevancy of sets over time and how much they last
+	-index of last set
+	-index of secret rare chase cards
+	-index of meta decks core cards
+	-index of structure deck resale value
+4. Overview of yugioh market
+	-total value of all cards
+	-amount to buy one of each cards
+	-amount of cards sold that day
+	-most sold card that day
+	-most listed card that day
+	-most expensive card
+	-cheapest card
+5. $ csv file downloads
+________________________________________________________________________________________________________________________________________________
+
+Card Exchange
+
+How it works
+
+1.) Bob buys card.
+	-we charge like X% of purchase price from Bob
+2.) Tier 1 buys card with bobs money. Ships to Tier 1
+3.) Bob same day lists card to sell before it has even shipped.
+4.) Bob Sells Card to Joe
+	-we charge X% of purchase price from Joe
+5.) Tier 1 ships card already in stock to Joe
+6.) Later the card Bob bought arrives at Tier 1 in mail.
+
+Bob makes $ through fee for buying/selling
