@@ -1,0 +1,213 @@
+body{
+  height: 1080px;
+}
+.topbar{
+    height: 75px;
+    background-color: #3F5178;
+}
+h1{color:white;
+position: absolute;
+left:140px;
+top:6px;
+font-family: "Arial", sans-serif;
+}
+.topnav input[type=text] {
+    position: absolute;
+    left:500px;
+    top:20px;
+    width:300px;
+    padding: 6px;
+    border: yes;
+    margin-top: 8px;
+    margin-left: 16px;
+    font-size: 17px;
+    
+  }
+  /* Add background color to the top navigation bar */
+.secondbar {
+    overflow: hidden;
+    background-color: #193f72;
+  }
+  /* Style the links inside the navigation bar */
+  .secondbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: "Arial", sans-serif;
+    font-size: 17px;
+  }
+  /* Change the color of links on hover */
+  .secondbar a:hover {
+    background-color: rgb(253, 167, 38);
+    color: black;
+  }
+  /* Style the "active" element to highlight the current page */
+  .secondbar a.active {
+    background-color: rgb(253, 167, 38);
+    color: black;
+  }
+  #chartdiv {
+    width: 500px;
+    height: 250px;
+    max-width: 100%;
+    outline: solid;
+    outline-color:  #193f72;
+    position: relative;
+    top: 5px;
+    
+  
+  }
+  .Welcome{
+    position: relative;
+    left: 503px;
+    bottom: 245px;
+    width: 250px;
+    height:250px;
+    outline: solid;
+    outline-color:  #193f72;
+  }
+
+
+  .Intro{
+    padding: 10px;
+  }
+ 
+  .InfoBox {
+    width: 200px;
+    position: absolute;
+    left:820px;
+    top: 150px;
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    text-decoration: none;
+    padding: 3px;
+    border-radius: 12px;
+    border:4px solid #193f72;
+    background: rgb(223, 223, 223);
+    }
+
+  .BuyNowLink a{
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+ 
+}
+.BuyNowLink a:hover{
+  color: rgb(253, 167, 38);
+  
+}
+
+.Info1{
+  font-size: 13px;
+  color: black;
+  
+}
+.InfoBox2 {
+  width: 200px;
+  position: absolute;
+  top: 500px;
+  left: 820px;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  text-decoration: none;
+  padding: 3px;
+  border-radius: 12px;
+  border:4px solid #193f72;
+  background: rgb(223, 223, 223);
+  }
+
+.Buyoutlink a{
+font-size: 25px;
+color: black;
+text-decoration: none;
+display: block;
+}
+
+.Buyoutlink a:hover {
+color: rgb(253, 167, 38);
+}
+
+
+
+.Info2{
+font-size: 13px;
+color: black;
+
+}
+
+.InfoBox3 {
+  width: 200px;
+  position: absolute;
+  top: 500px;
+  left: 60px;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  text-decoration: none;
+  padding: 3px;
+  border-radius: 12px;
+  border:4px solid #193f72;
+  background: rgb(223, 223, 223);
+}
+
+.PriceChamplink a{
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+  
+}
+.PriceChamplink a:hover {
+  color: rgb(253, 167, 38);
+  }
+
+h2{
+  color: #193f72;
+}
+.cardspurchased{
+  
+      font-family: arial, sans-serif;
+      position: relative;
+      bottom: 200px;
+      left: 325px;
+      width: 500px;
+  
+  
+}
+  th{
+    color:  #193f72;
+  }
+    td, th {
+      border: 2px solid #193f72;
+      text-align: left;
+      padding: 3px;
+    }
+    tr:nth-child(even) {
+      background-color: rgb(223, 223, 223);
+    }
+
+   
+  .footer {
+    position: fixed;
+    height: 40px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(179, 179, 179);
+    color: gray;
+   }
+   .footer a {
+    float: right;
+    display: block;
+    color: gray;
+    text-align: center;
+    padding: 12px 12px;
+    text-decoration: none;
+    font-family: "Arial", sans-serif;
+    font-size: 12px;
+   }
+   .footer a:hover  {
+     color: black;
+   }
+

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tier1Marketspace</title>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="/Users/natesager/Desktop/T1M Stuff/jQuery/jquery.js"></script>
+    <script src="/Users/natesager/Desktop/T1M Stuff/Lightbox/lightbox.js"></script>
+    <link href="/Users/natesager/Desktop/T1M Stuff/Lightbox/Lightbox.css" rel="stylesheet" />
+    <link href="/Users/natesager/Desktop/T1M Stuff/tim.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+  
+
+  
+<div class="topbar">
+     <div class="T1Mlogo">
+        <img src="https://i.imgur.com/wWBpTik.png" title="source: imgur.com" style="width:75px;height:75px;">
+
+        <div class="fullT1Mlogo">
+            <h1>Tier 1 Marketspace</h1>
+            <div class="topnav">
+                <input type="text" placeholder="Search Any Card...">
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="secondbar">
+    <a class="active" href="#home">Home</a>
+    <a href="#Indexes">Indexes</a>
+    <a href="#Historical Data">Historical Data</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</div>
+<div class="graph">
+  <!-- Graph Stuff -->
+  <!-- Styles -->
+  
+    
+    <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/dataviz.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    
+    <!-- Chart code -->
+    <script>
+    am4core.ready(function() {
+    
+    // Themes begin
+    am4core.useTheme(am4themes_dataviz);
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    
+    // Create chart
+    var chart = am4core.create("chartdiv", am4charts.XYChart);
+    chart.padding(0, 15, 0, 15);
+    
+    // Load external data
+    chart.dataSource.url = "https://www.amcharts.com/wp-content/uploads/assets/stock/MSFT.csv";
+    chart.dataSource.parser = new am4core.CSVParser();
+    chart.dataSource.parser.options.useColumnNames = true;
+    chart.dataSource.parser.options.reverse = true;
+    
+    // the following line makes value axes to be arranged vertically.
+    chart.leftAxesContainer.layout = "vertical";
+    
+    // uncomment this line if you want to change order of axes
+    //chart.bottomAxesContainer.reverseOrder = true;
+    
+    var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+    dateAxis.renderer.grid.template.location = 0;
+    dateAxis.renderer.ticks.template.length = 8;
+    dateAxis.renderer.ticks.template.strokeOpacity = 0.1;
+    dateAxis.renderer.grid.template.disabled = true;
+    dateAxis.renderer.ticks.template.disabled = false;
+    dateAxis.renderer.ticks.template.strokeOpacity = 0.2;
+    dateAxis.renderer.minLabelPosition = 0.01;
+    dateAxis.renderer.maxLabelPosition = 0.99;
+    dateAxis.keepSelection = true;
+    dateAxis.minHeight = 30;
+    
+    dateAxis.groupData = true;
+    dateAxis.minZoomCount = 5;
+    
+    // these two lines makes the axis to be initially zoomed-in
+     //dateAxis.start = 0.7;
+    // dateAxis.keepSelection = true;
+    
+    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis.tooltip.disabled = true;
+    valueAxis.zIndex = 1;
+    valueAxis.renderer.baseGrid.disabled = true;
+    // height of axis
+    valueAxis.height = am4core.percent(65);
+    
+    valueAxis.renderer.gridContainer.background.fill = am4core.color("#000000");
+    valueAxis.renderer.gridContainer.background.fillOpacity = 0.05;
+    valueAxis.renderer.inside = true;
+    valueAxis.renderer.labels.template.verticalCenter = "bottom";
+    valueAxis.renderer.labels.template.padding(2, 2, 2, 2);
+    
+    //valueAxis.renderer.maxLabelPosition = 0.95;
+    valueAxis.renderer.fontSize = "0.8em"
+    
+    var series = chart.series.push(new am4charts.LineSeries());
+    series.dataFields.dateX = "Date";
+    series.dataFields.valueY = "Adj Close";
+    series.tooltipText = "{valueY.value}";
+    series.name = "MSFT: Value";
+    series.defaultState.transitionDuration = 0;
+    
+    var valueAxis2 = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis2.tooltip.disabled = true;
+    // height of axis
+    valueAxis2.height = am4core.percent(35);
+    valueAxis2.zIndex = 3
+    // this makes gap between panels
+    valueAxis2.marginTop = 30;
+    valueAxis2.renderer.baseGrid.disabled = true;
+    valueAxis2.renderer.inside = true;
+    valueAxis2.renderer.labels.template.verticalCenter = "bottom";
+    valueAxis2.renderer.labels.template.padding(2, 2, 2, 2);
+    //valueAxis.renderer.maxLabelPosition = 0.95;
+    valueAxis2.renderer.fontSize = "0.8em"
+    
+    valueAxis2.renderer.gridContainer.background.fill = am4core.color("#000000");
+    valueAxis2.renderer.gridContainer.background.fillOpacity = 0.05;
+    
+    var series2 = chart.series.push(new am4charts.ColumnSeries());
+    series2.dataFields.dateX = "Date";
+    series2.dataFields.valueY = "Volume";
+    series2.yAxis = valueAxis2;
+    series2.tooltipText = "{valueY.value}";
+    series2.name = "MSFT: Volume";
+    // volume should be summed
+    series2.groupFields.valueY = "sum";
+    series2.defaultState.transitionDuration = 0;
+    
+    chart.cursor = new am4charts.XYCursor();
+    
+    var scrollbarX = new am4charts.XYChartScrollbar();
+    scrollbarX.series.push(series);
+    scrollbarX.marginBottom = 20;
+    scrollbarX.scrollbarChart.xAxes.getIndex(0).minHeight = undefined;
+    chart.scrollbarX = scrollbarX;
+    
+    
+    /**
+     * Set up external controls
+     */
+    
+    // Date format to be used in input fields
+    var inputFieldFormat = "dd-MM-yyyy";
+    
+    document.getElementById("b1m").addEventListener("click", function() {
+      var max = dateAxis.groupMax["day1"];
+      var date = new Date(max);
+      am4core.time.add(date, "month", -1);
+      zoomToDates(date);
+    });
+    
+    document.getElementById("b3m").addEventListener("click", function() {
+      var max = dateAxis.groupMax["day1"];
+      var date = new Date(max);
+      am4core.time.add(date, "month", -3);
+      zoomToDates(date);
+    });
+    
+    document.getElementById("b6m").addEventListener("click", function() {
+      var max = dateAxis.groupMax["day1"];
+      var date = new Date(max);
+      am4core.time.add(date, "month", -6);
+      zoomToDates(date);
+    });
+    
+    document.getElementById("b1y").addEventListener("click", function() {
+      var max = dateAxis.groupMax["day1"];
+      var date = new Date(max);
+      am4core.time.add(date, "year", -1);
+      zoomToDates(date);
+    });
+    
+    document.getElementById("bytd").addEventListener("click", function() {
+      var max = dateAxis.groupMax["day1"];
+      var date = new Date(max);
+      am4core.time.round(date, "year", 1);
+      zoomToDates(date);
+    });
+    
+    document.getElementById("bmax").addEventListener("click", function() {
+      var min = dateAxis.groupMin["day1"];
+      var date = new Date(min);
+      zoomToDates(date);
+    });
+    
+    dateAxis.events.on("selectionextremeschanged", function() {
+      updateFields();
+    });
+    
+    dateAxis.events.on("extremeschanged", updateFields);
+    
+    function updateFields() {
+      var minZoomed = dateAxis.minZoomed + am4core.time.getDuration(dateAxis.mainBaseInterval.timeUnit, dateAxis.mainBaseInterval.count) * 0.5;
+      document.getElementById("fromfield").value = chart.dateFormatter.format(minZoomed, inputFieldFormat);
+      document.getElementById("tofield").value = chart.dateFormatter.format(new Date(dateAxis.maxZoomed), inputFieldFormat);
+    }
+    
+    document.getElementById("fromfield").addEventListener("keyup", updateZoom);
+    document.getElementById("tofield").addEventListener("keyup", updateZoom);
+    
+    var zoomTimeout;
+    function updateZoom() {
+      if (zoomTimeout) {
+        clearTimeout(zoomTimeout);
+      }
+      zoomTimeout = setTimeout(function() {
+        var start = document.getElementById("fromfield").value;
+        var end = document.getElementById("tofield").value;
+        if ((start.length < inputFieldFormat.length) || (end.length < inputFieldFormat.length)) {
+          return;
+        }
+        var startDate = chart.dateFormatter.parse(start, inputFieldFormat);
+        var endDate = chart.dateFormatter.parse(end, inputFieldFormat);
+    
+        if (startDate && endDate) {
+          dateAxis.zoomToDates(startDate, endDate);
+        }
+      }, 500);
+    }
+    
+    function zoomToDates(date) {
+      var min = dateAxis.groupMin["day1"];
+      var max = dateAxis.groupMax["day1"];
+      dateAxis.keepSelection = true;
+      //dateAxis.start = (date.getTime() - min)/(max - min);
+      //dateAxis.end = 1;
+    
+      dateAxis.zoom({start:(date.getTime() - min)/(max - min), end:1});
+    }
+    
+    }); // end am4core.ready()
+    </script>
+    
+    <!-- HTML -->
+        <div id="controls" style="width: 100%; overflow: hidden;">
+        <div style="float: left; margin-left: 15px; ">
+        From: <input type="text" id="fromfield" class="amcharts-input" />
+        To: <input type="text" id="tofield" class="amcharts-input" />
+        </div>
+        <div style="float: left; margin-right: 15px;">
+        <button id="b1m" class="amcharts-input">1m</button>
+        <button id="b3m" class="amcharts-input">3m</button>
+        <button id="b6m" class="amcharts-input">6m</button>
+        <button id="b1y" class="amcharts-input">1y</button>
+        <button id="bytd" class="amcharts-input">YTD</button>
+        <button id="bmax" class="amcharts-input">MAX</button>
+        </div>
+        </div>
+    <div id="chartdiv"></div>
+  </div>
+  <div class="Welcome">
+    <div class="Intro">
+      <p>Welcome to Tier 1 Marketspace, the go-to place for all things Yugioh and finance! Explore the site, stay a while, and enjoy all there is to see. Have a question about the value of your cards? Just ask T1M!</p>
+    </div>
+  </div>
+  
+<div class="InfoBox">
+  <div class=BuyNowLink>
+    <a href="#BuyNow">Buy Now?</a>
+    <div class="Info1">
+    <a href="https://static-3.studiobebop.net/ygo_data/card_images/Windwitch___Glass_Bell.jpg" data-lightbox="Image-1" >
+    <img src="https://static-3.studiobebop.net/ygo_data/card_images/Windwitch___Glass_Bell.jpg" style="width:50%;">
+    </a>
+    <p>Our model believes this card is utilized in the meta, but its trading price has been on the fall, suggesting this could be a good time to invest. Check it out for yourself!</p>
+    </div>
+  </div>
+</div>
+<div class="InfoBox2">
+  <div class="Buyoutlink">
+    <a href="#Buyout">Buyout?</a>
+   
+      <a href="https://static-3.studiobebop.net/ygo_data/card_images/Windwitch___Glass_Bell.jpg" data-lightbox="Image-1" >
+        <img src="https://static-3.studiobebop.net/ygo_data/card_images/Windwitch___Glass_Bell.jpg" style="width:50%;">
+        </a>
+        <div class="Info2">
+    <p>Our model believes this card is utilized in the meta, but its trading price has been on the fall, suggesting this could be a good time to invest. Check it out for yourself!</p>
+    
+  </div>
+  </div>
+</div>
+<div class="cardspurchased">
+  <table class="cardspurchasedtable" style="width:200px">
+    
+     
+      <h2>Top 5 Selling Cards</h2>
+      
+      <table>
+        <tr>
+          <th>Card</th>
+          <th>Number Sold</th>
+          <th>Amount</th>
+        </tr>
+        <tr>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>Centro comercial Moctezuma</td>
+          <td>Francisco Chang</td>
+          <td>Mexico</td>
+        </tr>
+        <tr>
+          <td>Ernst Handel</td>
+          <td>Roland Mendel</td>
+          <td>Austria</td>
+        </tr>
+        <tr>
+          <td>Island Trading</td>
+          <td>Helen Bennett</td>
+          <td>UK</td>
+        </tr>
+        <tr>
+          <td>Laughing Bacchus Winecellars</td>
+          <td>Yoshi Tannamuri</td>
+          <td>Canada</td>
+        </tr>
+        <tr>
+          <td>Magazzini Alimentari Riuniti</td>
+          <td>Giovanni Rovelli</td>
+          <td>Italy</td>
+        </tr>
+      </table>
+    </div>
+  <div class="InfoBox3">
+    <div class="PriceChamplink">
+    <a href="#PriceChamp">Price Champ</a>
+      <a href="https://static-3.studiobebop.net/ygo_data/card_images/Windwitch___Glass_Bell.jpg" data-lightbox="Image-1" >
+      <img src="https://static-3.studiobebop.net/ygo_data/card_images/Windwitch___Glass_Bell.jpg" style="width:50%;">
+      </a>
+      <div class="Info3">
+        <p>This card has been the most expensive card on the market for X Days</p>
+      </div>
+      </div>
+  </div>
+    <div class="footer">
+      <div class="T1Mlogo2">
+        <img src="https://i.imgur.com/wWBpTik.png" style="width:40px;height:40px;">
+        <a href="#Help">Help</a>
+        <a href="#Data Disclaimer">Data Disclaimer</a>
+        <a href="#about our ads">About our Ads</a>
+      </div>
+    </div>
+ 
+</body>
+
+</html>
